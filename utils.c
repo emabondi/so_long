@@ -6,7 +6,7 @@
 /*   By: ebondi <ebondi@student.42roma.it>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 16:00:52 by ebondi            #+#    #+#             */
-/*   Updated: 2022/04/07 17:09:41 by ebondi           ###   ########.fr       */
+/*   Updated: 2022/04/13 05:22:02 by ebondi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	check_m(t_sl *data, int i, int j)
 		ft_error("Map");
 	if (data->matrix[i][j] != '0' && data->matrix[i][j] != '1' &&
 		data->matrix[i][j] != 'P' && data->matrix[i][j] != 'E'
-		&& data->matrix[i][j] != 'C')
+		&& data->matrix[i][j] != 'C' && data->matrix[i][j] != 'N')
 		ft_error("Map");
 }
 
