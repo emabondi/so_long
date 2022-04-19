@@ -6,7 +6,7 @@
 /*   By: ebondi <ebondi@student.42roma.it>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 17:25:06 by ebondi            #+#    #+#             */
-/*   Updated: 2022/04/13 05:33:21 by ebondi           ###   ########.fr       */
+/*   Updated: 2022/04/19 20:37:17 by ebondi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,11 @@ void	check_matrix(t_sl *data, t_flags *flags)
 	i = 0;
 	while (data->matrix[i] != NULL)
 	{
+		write(1, "ciao\n", 5);
 		j = 0;
 		while (data->matrix[i][j] != '\0')
 		{
-			ft_printf("%c", data->matrix[i][j]);
+			//ft_printf("%c", data->matrix[i][j]);
 			check_m(data, i, j);
 			if (data->matrix[i][j] == 'P')
 				flags->p_flag = 1;
@@ -36,7 +37,7 @@ void	check_matrix(t_sl *data, t_flags *flags)
 				flags->e_flag = 1;
 			j++;
 		}
-		ft_printf("\n");
+		//ft_printf("\n");
 		i++;
 	}
 }
@@ -50,7 +51,7 @@ int	get_matrix(char *s, t_sl *data)
 
 	data->matrix = (char **) malloc (sizeof(char *) * data->height + 1);
 	ft_check_malloc(data->matrix);
-	data->matrix[data->height + 1] = NULL;
+	data->matrix[data->height] = NULL;
 	fd = open(s, O_RDONLY);
 	i = 0;
 	while (i < data->height)
@@ -88,6 +89,7 @@ int	check_len(char *s, t_sl *data)
 			i++;
 		if (data->len != i)
 			return (0);
+		free(line);
 		line = get_next_line(fd);
 	}
 	close (fd);
@@ -116,15 +118,15 @@ int	main(int argc, char *argv[])
 {
 	t_sl	data;
 
-	data.mlx = mlx_init();
 	if (argc != 2)
 		ft_error("Arg");
 	if (get_map(argv[1], &data) == 0)
 		ft_error("Map");
+	data.mlx = mlx_init();
 	convert_images(&data);
-	data.window = mlx_new_window
-		(data.mlx, (data.len * 64), (data.height * 64), "so_long");
+	data.window = mlx_new_window(data.mlx, (data.len * 64), (data.height * 64), "so_long");
 	ft_draw(&data);
+	mlx_loop_hook(data.mlx, ft_draw, &data);
 	//mlx_key_hook(data);
 	mlx_loop(data.mlx);
 }

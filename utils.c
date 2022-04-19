@@ -6,7 +6,7 @@
 /*   By: ebondi <ebondi@student.42roma.it>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 16:00:52 by ebondi            #+#    #+#             */
-/*   Updated: 2022/04/13 05:22:02 by ebondi           ###   ########.fr       */
+/*   Updated: 2022/04/19 17:15:57 by ebondi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	check_m(t_sl *data, int i, int j)
 
 void	ft_error(char *str)
 {
-	ft_printf ("%s error\n", str);
+	ft_printf("%s error\n", str);
 	exit (1);
 }
 

@@ -6,7 +6,7 @@
 /*   By: ebondi <ebondi@student.42roma.it>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/12 22:04:43 by ebondi            #+#    #+#             */
-/*   Updated: 2022/04/13 05:47:32 by ebondi           ###   ########.fr       */
+/*   Updated: 2022/04/19 20:24:23 by ebondi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ void	convert_images_4(t_sl *data)
 		(data->mlx, "./img/nate_r3.xpm", &data->x, &data->x);
 	data->image.pikachu_br2 = mlx_xpm_file_to_image
 		(data->mlx, "./img/pikachu_br_2.xpm", &data->x, &data->x);
+	data->starly_frame = 1;
 }
 
 void	convert_images_3(t_sl *data)

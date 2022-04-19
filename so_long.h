@@ -6,7 +6,7 @@
 /*   By: ebondi <ebondi@student.42roma.it>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/31 15:55:19 by ebondi            #+#    #+#             */
-/*   Updated: 2022/04/13 05:27:56 by ebondi           ###   ########.fr       */
+/*   Updated: 2022/04/19 20:35:10 by ebondi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,7 @@ typedef struct so_long
 	char	**matrix;
 	void	*mlx;
 	void	*window;
+	int		starly_frame;
 	t_image	image;
 }				t_sl;
 
@@ -85,6 +86,6 @@ void	ft_error(char *str);
 void	ft_check_malloc(void *ptr);
 void	check_m(t_sl *data, int i, int j);
 void	convert_images(t_sl *data);
-void	ft_draw(t_sl *data);
+int		ft_draw(t_sl *data);
 
 #endif
