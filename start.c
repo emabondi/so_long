@@ -6,7 +6,7 @@
 /*   By: ebondi <ebondi@student.42roma.it>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 17:25:06 by ebondi            #+#    #+#             */
-/*   Updated: 2022/04/19 20:37:17 by ebondi           ###   ########.fr       */
+/*   Updated: 2022/04/20 23:09:46 by ebondi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ void	check_matrix(t_sl *data, t_flags *flags)
 	i = 0;
 	while (data->matrix[i] != NULL)
 	{
-		write(1, "ciao\n", 5);
 		j = 0;
 		while (data->matrix[i][j] != '\0')
 		{
@@ -111,6 +110,8 @@ int	get_map(char *s, t_sl *data)
 	data->height = 0;
 	if (check_len(s, data) == 0 || get_matrix(s, data) == 0)
 		return (0);
+	data->frame = 1;
+	data->nate_dir = 3;
 	return (1);
 }
 
@@ -124,9 +125,10 @@ int	main(int argc, char *argv[])
 		ft_error("Map");
 	data.mlx = mlx_init();
 	convert_images(&data);
-	data.window = mlx_new_window(data.mlx, (data.len * 64), (data.height * 64), "so_long");
+	data.window = mlx_new_window
+		(data.mlx, (data.len * 64), (data.height * 64), "so_long");
 	ft_draw(&data);
 	mlx_loop_hook(data.mlx, ft_draw, &data);
-	//mlx_key_hook(data);
+	mlx_key_hook(data.window, key_handler, &data);
 	mlx_loop(data.mlx);
 }
