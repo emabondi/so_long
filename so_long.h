@@ -6,7 +6,7 @@
 /*   By: ebondi <ebondi@student.42roma.it>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/31 15:55:19 by ebondi            #+#    #+#             */
-/*   Updated: 2022/04/20 23:36:58 by ebondi           ###   ########.fr       */
+/*   Updated: 2022/04/22 18:56:13 by ebondi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,20 +68,27 @@ typedef struct so_long
 	int		x;
 	int		height;
 	int		len;
+	int		x_nate;
+	int		y_nate;
+	int		n_collectibles;
+	int		e_flag;
 	char	**matrix;
 	void	*mlx;
 	void	*window;
 	int		frame;
 	int		nate_dir;
+	int		x_pika;
+	int		y_pika;
+	int		pika_dir;
 	t_image	image;
 }				t_sl;
 
-typedef struct flags
-{
-	int	p_flag;
-	int	c_flag;
-	int	e_flag;
-}				t_flags;
+//typedef struct flags
+//{
+//	int	p_flag;
+//	int	c_flag;
+//	int	e_flag;
+//}				t_flags;
 
 void	ft_error(char *str);
 void	ft_check_malloc(void *ptr);
@@ -89,5 +96,6 @@ void	check_m(t_sl *data, int i, int j);
 void	convert_images(t_sl *data);
 int		ft_draw(t_sl *data);
 int		key_handler(int keycode, t_sl *data);
+void	get_nate(t_sl *data, int x, int y);
 
 #endif

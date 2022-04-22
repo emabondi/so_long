@@ -6,11 +6,23 @@
 /*   By: ebondi <ebondi@student.42roma.it>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 16:00:52 by ebondi            #+#    #+#             */
-/*   Updated: 2022/04/19 17:15:57 by ebondi           ###   ########.fr       */
+/*   Updated: 2022/04/22 22:22:47 by ebondi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
+
+void	get_nate(t_sl *data, int i, int j)
+{
+	if (data->x_nate != -1 && data->y_nate != -1)
+		ft_error("Map");
+	data->x_nate = j;
+	data->y_nate = i;
+	data->nate_dir = 3;
+	data->pika_dir = 3;
+	data->x_pika = -1;
+	data->y_pika = -1;
+}
 
 void	check_m(t_sl *data, int i, int j)
 {

@@ -6,20 +6,21 @@
 /*   By: ebondi <ebondi@student.42roma.it>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 17:25:06 by ebondi            #+#    #+#             */
-/*   Updated: 2022/04/20 23:09:46 by ebondi           ###   ########.fr       */
+/*   Updated: 2022/04/22 18:57:43 by ebondi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void	check_matrix(t_sl *data, t_flags *flags)
+void	check_matrix(t_sl *data)
 {
 	int	i;
 	int	j;
 
-	flags->p_flag = 0;
-	flags->c_flag = 0;
-	flags->e_flag = 0;
+	data->x_nate = -1;
+	data->y_nate = -1;
+	data->n_collectibles = 0;
+	data->e_flag = 0;
 	i = 0;
 	while (data->matrix[i] != NULL)
 	{
@@ -29,11 +30,11 @@ void	check_matrix(t_sl *data, t_flags *flags)
 			//ft_printf("%c", data->matrix[i][j]);
 			check_m(data, i, j);
 			if (data->matrix[i][j] == 'P')
-				flags->p_flag = 1;
+				get_nate(data, i, j);
 			if (data->matrix[i][j] == 'C')
-				flags->c_flag = 1;
+				data->n_collectibles++;
 			if (data->matrix[i][j] == 'E')
-				flags->e_flag = 1;
+				data->e_flag = 1;
 			j++;
 		}
 		//ft_printf("\n");
@@ -46,7 +47,6 @@ int	get_matrix(char *s, t_sl *data)
 	int		i;
 	int		fd;
 	char	*line;
-	t_flags	flags;
 
 	data->matrix = (char **) malloc (sizeof(char *) * data->height + 1);
 	ft_check_malloc(data->matrix);
@@ -62,8 +62,8 @@ int	get_matrix(char *s, t_sl *data)
 		i++;
 	}
 	close (fd);
-	check_matrix(data, &flags);
-	if (flags.p_flag == 0 || flags.c_flag == 0 || flags.e_flag == 0)
+	check_matrix(data);
+	if (data->x_nate == -1 || data->n_collectibles <= 0 || data->e_flag == 0)
 		return (0);
 	return (1);
 }
@@ -111,7 +111,6 @@ int	get_map(char *s, t_sl *data)
 	if (check_len(s, data) == 0 || get_matrix(s, data) == 0)
 		return (0);
 	data->frame = 1;
-	data->nate_dir = 3;
 	return (1);
 }
 
