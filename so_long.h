@@ -6,7 +6,7 @@
 /*   By: ebondi <ebondi@student.42roma.it>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/31 15:55:19 by ebondi            #+#    #+#             */
-/*   Updated: 2022/04/22 18:56:13 by ebondi           ###   ########.fr       */
+/*   Updated: 2022/04/23 16:26:29 by ebondi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,5 +97,7 @@ void	convert_images(t_sl *data);
 int		ft_draw(t_sl *data);
 int		key_handler(int keycode, t_sl *data);
 void	get_nate(t_sl *data, int x, int y);
+void	draw_pika(t_sl *data, int j, int i);
+void	draw_pika2(t_sl *data, int j, int i);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: ebondi <ebondi@student.42roma.it>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/12 22:04:43 by ebondi            #+#    #+#             */
-/*   Updated: 2022/04/20 22:56:48 by ebondi           ###   ########.fr       */
+/*   Updated: 2022/04/23 16:59:25 by ebondi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,14 +28,14 @@ void	convert_images_4(t_sl *data)
 
 void	convert_images_3(t_sl *data)
 {
-	data->image.starly_br3 = mlx_xpm_file_to_image
-		(data->mlx, "./img/starly_br_3.xpm", &data->x, &data->x);
-	data->image.starly_bl1 = mlx_xpm_file_to_image
-		(data->mlx, "./img/starly_bl_1.xpm", &data->x, &data->x);
-	data->image.starly_bl2 = mlx_xpm_file_to_image
-		(data->mlx, "./img/starly_bl_2.xpm", &data->x, &data->x);
-	data->image.starly_bl3 = mlx_xpm_file_to_image
-		(data->mlx, "./img/starly_bl_3.xpm", &data->x, &data->x);
+	//data->image.starly_br3 = mlx_xpm_file_to_image
+	//	(data->mlx, "./img/starly_br_3.xpm", &data->x, &data->x);
+	//data->image.starly_bl1 = mlx_xpm_file_to_image
+	//	(data->mlx, "./img/starly_bl_1.xpm", &data->x, &data->x);
+	//data->image.starly_bl2 = mlx_xpm_file_to_image
+	//	(data->mlx, "./img/starly_bl_2.xpm", &data->x, &data->x);
+	//data->image.starly_bl3 = mlx_xpm_file_to_image
+	//	(data->mlx, "./img/starly_bl_3.xpm", &data->x, &data->x);
 	data->image.nate_b1 = mlx_xpm_file_to_image
 		(data->mlx, "./img/nate_b1.xpm", &data->x, &data->x);
 	data->image.nate_b2 = mlx_xpm_file_to_image
@@ -57,6 +57,8 @@ void	convert_images_3(t_sl *data)
 
 void	convert_images_2(t_sl *data)
 {
+	data->image.pikachu_br2 = mlx_xpm_file_to_image
+		(data->mlx, "./img/pikachu_br_2.xpm", &data->x, &data->x);
 	data->image.pikachu_br3 = mlx_xpm_file_to_image
 		(data->mlx, "./img/pikachu_br_3.xpm", &data->x, &data->x);
 	data->image.pikachu_bl1 = mlx_xpm_file_to_image
@@ -77,10 +79,10 @@ void	convert_images_2(t_sl *data)
 		(data->mlx, "./img/starly_fr_2.xpm", &data->x, &data->x);
 	data->image.starly_fr3 = mlx_xpm_file_to_image
 		(data->mlx, "./img/starly_fr_3.xpm", &data->x, &data->x);
-	data->image.starly_br1 = mlx_xpm_file_to_image
-		(data->mlx, "./img/starly_br_1.xpm", &data->x, &data->x);
-	data->image.starly_br2 = mlx_xpm_file_to_image
-		(data->mlx, "./img/starly_br_2.xpm", &data->x, &data->x);
+	//data->image.starly_br1 = mlx_xpm_file_to_image
+	//	(data->mlx, "./img/starly_br_1.xpm", &data->x, &data->x);
+	//data->image.starly_br2 = mlx_xpm_file_to_image
+	//	(data->mlx, "./img/starly_br_2.xpm", &data->x, &data->x);
 	convert_images_3(data);
 }
 
