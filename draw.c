@@ -6,7 +6,7 @@
 /*   By: ebondi <ebondi@student.42roma.it>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/13 03:28:04 by ebondi            #+#    #+#             */
-/*   Updated: 2022/04/23 17:12:16 by ebondi           ###   ########.fr       */
+/*   Updated: 2022/04/26 18:53:22 by ebondi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,18 +107,14 @@ void	put_image(t_sl *data, char c, int j, int i)
 			(data->mlx, data->window, data->image.exit, i * 64, j * 64);
 	else if (c == 'P')
 		draw_nate(data, i, j);
-		//mlx_put_image_to_window
-		//	(data->mlx, data->window, data->image.nate_f1, i * 64, j * 64);
 	else if (c == 'N')
 		draw_starly(data, i, j);
-		//mlx_put_image_to_window
-		//	(data->mlx, data->window, data->image.starly_fr1, i * 64, j * 64);
 }
 
 int	ft_draw(t_sl *data)
 {
-	int	i;
-	int	j;
+	int		i;
+	int		j;
 
 	mlx_clear_window(data->mlx, data->window);
 	j = 0;
@@ -135,8 +131,6 @@ int	ft_draw(t_sl *data)
 		}
 		j++;
 	}
-	data->frame++;
-	if (data->frame == 210)
-		data->frame = 1;
+	ft_draw2(data);
 	return (0);
 }

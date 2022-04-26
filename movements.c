@@ -6,7 +6,7 @@
 /*   By: ebondi <ebondi@student.42roma.it>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/20 23:16:33 by ebondi            #+#    #+#             */
-/*   Updated: 2022/04/23 17:14:56 by ebondi           ###   ########.fr       */
+/*   Updated: 2022/04/26 21:21:17 by ebondi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ void	draw_pika(t_sl *data, int j, int i)
 
 void	ft_swap(t_sl *data, int x, int y, int flag)
 {
-	ft_printf("y_nate:%d x_nate:%d\n", data->y_nate, data->x_nate);
+	data->m++;
 	data->matrix[data->y_nate][data->x_nate] = '0';
 	data->matrix[y][x] = 'P';
 	data->pika_dir = data->nate_dir;
@@ -79,7 +79,6 @@ void	ft_swap(t_sl *data, int x, int y, int flag)
 	data->y_pika = data->y_nate;
 	data->x_nate = x;
 	data->y_nate = y;
-	ft_printf("y_pika:%d x_pika:%d\n", data->y_pika, data->x_pika);
 	if (flag == 1)
 		data->n_collectibles--;
 }
@@ -97,19 +96,17 @@ void	check_movement(t_sl *data, int x, int y, int dir)
 		if (data->matrix[y][x] == 'C' || data->matrix[y][x] == '0')
 			ft_swap(data, x, y, flag);
 		else if (data->matrix[y][x] == 'N')
-			exit (1);
+			free_and_exit(data, "YOU LOSE");
 		else if (data->matrix[y][x] == 'E' && data->n_collectibles == 0)
 		{
 			ft_swap(data, x, y, flag);
-			exit (1);
+			free_and_exit(data, "YOU WIN");
 		}
 	}
-	//data->nate_dir = dir;
 }
 
 int	key_handler(int keycode, t_sl *data)
 {
-	//ft_printf("%d\n", keycode);w
 	if (keycode == 53)
 	{
 		mlx_clear_window(data->mlx, data->window);
@@ -124,6 +121,5 @@ int	key_handler(int keycode, t_sl *data)
 		check_movement(data, data->x_nate, (data->y_nate + 1), 3);
 	else if (keycode == 0)
 		check_movement(data, (data->x_nate - 1), data->y_nate, 4);
-	//ft_printf("xnate:%d ynate:%d\n", data->x_nate, data->y_nate);
 	return (0);
 }

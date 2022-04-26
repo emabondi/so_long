@@ -6,7 +6,7 @@
 /*   By: ebondi <ebondi@student.42roma.it>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/31 15:55:19 by ebondi            #+#    #+#             */
-/*   Updated: 2022/04/23 16:26:29 by ebondi           ###   ########.fr       */
+/*   Updated: 2022/04/26 21:09:44 by ebondi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,12 +43,6 @@ typedef struct s_image
 	void	*starly_fr1;
 	void	*starly_fr2;
 	void	*starly_fr3;
-	void	*starly_br1;
-	void	*starly_br2;
-	void	*starly_br3;
-	void	*starly_bl1;
-	void	*starly_bl2;
-	void	*starly_bl3;
 	void	*nate_b1;
 	void	*nate_b2;
 	void	*nate_b3;
@@ -80,15 +74,9 @@ typedef struct so_long
 	int		x_pika;
 	int		y_pika;
 	int		pika_dir;
+	int		m;
 	t_image	image;
 }				t_sl;
-
-//typedef struct flags
-//{
-//	int	p_flag;
-//	int	c_flag;
-//	int	e_flag;
-//}				t_flags;
 
 void	ft_error(char *str);
 void	ft_check_malloc(void *ptr);
@@ -99,5 +87,8 @@ int		key_handler(int keycode, t_sl *data);
 void	get_nate(t_sl *data, int x, int y);
 void	draw_pika(t_sl *data, int j, int i);
 void	draw_pika2(t_sl *data, int j, int i);
+void	ft_draw2(t_sl *data);
+void	free_and_exit(t_sl *data, char *str);
+void	endgame(t_sl *data, char *str);
 
 #endif
