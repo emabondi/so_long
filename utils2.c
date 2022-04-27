@@ -6,11 +6,17 @@
 /*   By: ebondi <ebondi@student.42roma.it>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/26 16:16:05 by ebondi            #+#    #+#             */
-/*   Updated: 2022/04/26 21:20:14 by ebondi           ###   ########.fr       */
+/*   Updated: 2022/04/27 19:13:45 by ebondi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
+
+int	ft_exit(char *str)
+{
+	ft_printf("%s\n", str);
+	exit(1);
+}
 
 void	free_and_exit(t_sl *data, char *str)
 {

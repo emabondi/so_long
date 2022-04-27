@@ -6,7 +6,7 @@
 /*   By: ebondi <ebondi@student.42roma.it>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/31 15:55:19 by ebondi            #+#    #+#             */
-/*   Updated: 2022/04/26 21:09:44 by ebondi           ###   ########.fr       */
+/*   Updated: 2022/04/27 19:12:43 by ebondi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,5 +90,6 @@ void	draw_pika2(t_sl *data, int j, int i);
 void	ft_draw2(t_sl *data);
 void	free_and_exit(t_sl *data, char *str);
 void	endgame(t_sl *data, char *str);
+int		ft_exit(char *str);
 
 #endif

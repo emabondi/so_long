@@ -6,7 +6,7 @@
 /*   By: ebondi <ebondi@student.42roma.it>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/20 23:16:33 by ebondi            #+#    #+#             */
-/*   Updated: 2022/04/26 21:21:17 by ebondi           ###   ########.fr       */
+/*   Updated: 2022/04/27 18:59:43 by ebondi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,7 +111,7 @@ int	key_handler(int keycode, t_sl *data)
 	{
 		mlx_clear_window(data->mlx, data->window);
 		mlx_destroy_window(data->mlx, data->window);
-		exit(0);
+		free_and_exit(data, "EXIT");
 	}
 	else if (keycode == 13)
 		check_movement(data, data->x_nate, (data->y_nate - 1), 1);

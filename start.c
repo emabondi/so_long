@@ -6,7 +6,7 @@
 /*   By: ebondi <ebondi@student.42roma.it>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 17:25:06 by ebondi            #+#    #+#             */
-/*   Updated: 2022/04/26 20:52:14 by ebondi           ###   ########.fr       */
+/*   Updated: 2022/04/27 19:24:32 by ebondi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -131,5 +131,6 @@ int	main(int argc, char *argv[])
 	ft_draw(&data);
 	mlx_loop_hook(data.mlx, ft_draw, &data);
 	mlx_key_hook(data.window, key_handler, &data);
+	mlx_hook(data.window, 17, 0, ft_exit, "EXIT");
 	mlx_loop(data.mlx);
 }
